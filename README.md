@@ -192,6 +192,9 @@ That's all for now.
 ## Some example
 
 - [pyreveal page](https://wcchin.github.io/pyreveal/index.html)
+- [example of skeleton theme](https://wcchin.github.io/carlae/example_theme/skeleton/docs/index.html)
+- [example of minimal theme](https://wcchin.github.io/carlae/example_theme/minimal/docs/index.html)
+- [example of poole theme](https://wcchin.github.io/carlae/example_theme/poole/docs/index.html)
 
 ## License 
 
