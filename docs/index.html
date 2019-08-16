@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="UTF-8">
+  <title>Carlae, a static single page for project site generator</title>
+  <meta name="description" content="">
+  <meta name="author" content="wcchin">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="css/css.css" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <!--<link rel="stylesheet" href="css/typicons/typicons.min.css">-->
+  <!--<link rel="stylesheet" href="css/fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="css/fontawesome/css/brands.min.css">
+  <link rel="stylesheet" href="css/fontawesome/css/solid.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typicons.font@2.0.9/src/font/typicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/solid.min.css">
+
+  <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" async="" src="js/ga.js"></script><script id="twitter-wjs" src="js/widgets.js"></script><script src="js/jquery.js"></script>
+  <script src="js/run_prettify.html"></script>
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
+  <script src="js/site.js"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="http://getskeleton.com/dist/images/favicon.png">
+
+<script charset="utf-8" src="js/button.js"></script></head>
+<body class="code-snippets-visible">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h1 class="title"> Carlae </h1>
+      <h2 class="title"> Simple Stupid Single-webpage generator </h2>
+      
+      <a class="button button-primary" href="https://wcchin.github.io" > go to my project page </a>
+      
+      
+      <div class="value-props row">
+		
+        <div class="four columns value-prop">
+		  <h1 style="color:#33C3F0;"><span class="typcn typcn-device-desktop"></span></h1>
+          the monitor
+        </div>
+        
+        <div class="four columns value-prop">
+		  <h1 style="color:#33C3F0;"><span class="typcn typcn-user-outline"></span></h1>
+          the user
+        </div>
+        
+        <div class="four columns value-prop">
+		  <h1 style="color:#33C3F0;"><span class="typcn typcn-keyboard"></span></h1>
+          and the keyboard
+        </div>
+        
+      </div>
+      
+    </section>
+
+	
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <!--<li class="navbar-item"><a class="navbar-link" href="#"><large>Carlae</large></a></li>-->
+		  
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#codeNavPopovercarlae">Carlae</a>
+            <div id="codeNavPopovercarlae" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#carlae">Carlae</a>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#codeNavPopoverdependencies">Dependencies</a>
+            <div id="codeNavPopoverdependencies" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#dependencies">Dependencies</a>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#codeNavPopovergettingstarted">Getting Started</a>
+            <div id="codeNavPopovergettingstarted" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#gettingstarted">Getting Started</a>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#codeNavPopoverhowitworks">How It Works</a>
+            <div id="codeNavPopoverhowitworks" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#howitworks">How It Works</a>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          
+          <li class="navbar-item">
+            <a class="navbar-link" href="#" data-popover="#codeNavPopoverpagelayout">Page Layout</a>
+            <div id="codeNavPopoverpagelayout" class="popover">
+              <ul class="popover-list">
+                <li class="popover-item">
+                  <a class="popover-link" href="#pagelayout">Page Layout</a>
+                </li>
+                
+                <li class="popover-item">
+                  <a class="popover-link" href="#contentgeneration">Content Generation</a>
+                </li>
+                
+                <li class="popover-item">
+                  <a class="popover-link" href="#optionsandpaths">Options and paths</a>
+                </li>
+                
+                <li class="popover-item">
+                  <a class="popover-link" href="#feedback">Feedback</a>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+    
+
+    <!-- main text area -->
+    <div class="docs-section" id="intro">
+	  <h1 id="carlae">Carlae</h1>
+
+<p><strong>A Quick way to create simple SINGLE PAGE webpage for your project.</strong></p>
+<p>Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project. 
+You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated. </p>
+<p>You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2. </p>
+<h1 id="dependencies">Dependencies</h1>
+
+<p>Carlae is written in python 3.6. Carlae has a few dependencies:</p>
+<ul>
+<li>markdown</li>
+<li>pyyaml</li>
+<li>jinja2</li>
+<li>watchdog</li>
+</ul>
+<h1 id="gettingstarted">Getting Started</h1>
+
+<p>Clone or download the repository and put the files (extract them if download zip file) to somewhere, then </p>
+<pre><code>$ pip install -e .
+</code></pre>
+<p>This will install the package at the current location and it is editable. 
+This will also add carlae to your terminal function.</p>
+<p><strong>write till here</strong></p>
+<p>Create and build a site project:</p>
+<pre><code>$ mkdir /path/to/site/project
+$ cd /path/to/site/project
+$ poole.py --init --theme minimal
+$ poole.py --build
+$ poole.py --serve
+</code></pre>
+<p>Done. You've just created a website! Browse <a href="http://localhost:8080/">http://localhost:8080/</a> and watch
+the example pages which have been created during initialization. To write your
+own pages, use the example pages in the <em>input</em> folder as a starting point.</p>
+<p>Next to the <em>miniaml</em> theme, there are some other <a href="https://bitbucket.org/obensonne/poole/wiki/Themes">choices available</a>.</p>
+<p>Run <code>poole.py --build</code> whenever you've made some changes in the <em>input</em> folder.</p>
+<h1 id="howitworks">How It Works</h1>
+
+<p>Poole takes files from a project's <code>input</code> directory and copies them to the
+<code>output</code> directory. In this process files ending with <em>md</em>, <em>mkd</em>, <em>mdown</em> or
+<em>markdown</em> get converted to HTML using the project's <code>page.html</code> as a template
+(unless a custom template is set on an individual page).</p>
+<p>Additionally Poole expands any macros used in a page. Don't care about that for
+now ..</p>
+<p>When running <code>poole.py --build</code> in a Poole project, an input directory like
+this:</p>
+<pre><code>|- input
+    |- index.md
+    |- news.mkd
+    |- foo.mdown
+    |- images
+        |- bar.png
+</code></pre>
+<p>will result in an output folder like that:</p>
+<pre><code>|- output
+    |- index.html
+    |- news.html
+    |- foo.html
+    |- images
+        |- bar.png
+</code></pre>
+<h1 id="pagelayout">Page Layout</h1>
+
+<p>Every Poole page is based on the skeleton file <code>page.html</code>. Hence adjusting the
+site layout means adjusting <code>page.html</code> and extending or replacing its CSS file
+<code>input/poole.css</code>.</p>
+<p>The only thing you should keep in <code>page.html</code> are the embedded
+{{__content__}} and {{__encoding__}} expressions.  Below is an almost
+minimal <code>page.html</code> file. It does not look nice but it's a clean starting point
+to build your own layout from scratch.</p>
+<p>Minimal <code>page.html</code>:</p>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset={{ __encoding__ }}" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{ __content__ }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>It's easy to apply one of the numerous free CSS templates out there to a Poole
+site. For more information read <a href="http://obensonne.bitbucket.org/blog/20091122-using-a-free-css-templates-in-poole.html">this blog post with step-by-step
+instructions</a>.</p>
+<p>In case you need special templates for individual pages, you can add the
+property <code>tempalte</code> in the front matter of each page:</p>
+<pre><code>title: This looks different
+template: a-special-page-template.html
+---
+</code></pre>
+<p>In that case the given file is used as the page template instead of the default
+<code>page.html</code> file.</p>
+<h2 id="contentgeneration">Content Generation</h2>
+
+<p>Poole allows you to embed Python code in your pages to <em>generate</em> content:</p>
+<p><code>input/some-page.md</code>:</p>
+<pre><code>Here is normal text in *markdown* flavor.
+{%
+print "hello poole"
+%}
+Did you know? The sum of 2 and 2 is {{ 2 + 2 }}.
+</code></pre>
+<p>This example demonstrates two ways to embed Python code, either as statements or
+as expressions:</p>
+<ol>
+<li>Everything between <code>{%</code> and <code>%}</code> are <em>statements</em> and whatever is printed
+     to <em>stdout</em> during their execution is going to be part of the final HTML
+     page.</li>
+<li>Everything between <code>{{</code> and <code>}}</code> are <em>expressions</em> and their evaluation is
+     going to be part of the final page.</li>
+</ol>
+<p><strong>TIP</strong>: Instead of the outer curly brackets <code>{</code> and <code>}</code> you can also use
+<code>&lt;!--</code> and <code>--&gt;</code> to prevent syntax highlighting markdown editors from getting
+confused by the Python code.</p>
+<p><strong>TIP:</strong> To print the code surrounding tags literally, simply escape the
+opening tag with a backslash.</p>
+<h3>Outsource complex or frequently used code</h3>
+<p>To keep embedded code short and compact or to reuse it in several pages, it can
+be outsourced into a file called <code>macros.py</code> in a project's root folder (where
+the <code>page.html</code> file is located). Every public attribute in <code>macros.py</code> is
+available within embedded Python code blocks:</p>
+<p><code>macros.py</code>:</p>
+<pre><code>from datetime import date
+def today():
+    return date.today().strftime("%B %d, %Y")
+
+author = "Popeye"
+</code></pre>
+<p><code>input/some-page.md</code>:</p>
+<pre><code>This site has been updated on {{ today() }} by {{ author }}.
+</code></pre>
+<h3>Builtin macros</h3>
+<p>Builtin macros can be used from the macros module as well as from python
+code in your pages and templates (just as if they are defined within
+your macros.py).</p>
+<p>Currently, there is only one builtin macro available.</p>
+<p><code>hx(s)</code></p>
+<blockquote>
+<p>Replace the characters that are special within HTML (<code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> and <code>"</code>)
+with their equivalent character entity (e.g., <code>&amp;amp;</code>). This should be
+called whenever an arbitrary string is inserted into HTML (i.e. use
+<code>{{ hx(variable) }}</code> instead of <code>{{ variable }}</code>). You do not need this
+within a markdown context.</p>
+<p>Note that <code>"</code> is not special in most HTML, only within attributes.
+However, since escaping it does not hurt within normal HTML, it is
+just escaped unconditionally.</p>
+</blockquote>
+<h3>Working with pages</h3>
+<p>Next to stuff defined in <code>macros.py</code> the objects <code>page</code> and <code>pages</code> are
+available in embedded Python code. The first one is a dictionary describing the
+page in which the code is embedded. The second one is a list of <em>all</em> pages in
+the project.</p>
+<p>The following attributes are always set in a page dictionary:</p>
+<ul>
+<li><strong>title:</strong> The page's title, by default its filename without extension
+    (setting alternatives is described in the next section).</li>
+<li><strong>fname:</strong> Path to the page's source file, e.g.
+    <code>/path/to/project/input/stuff/news.md</code>.</li>
+<li><strong>url:</strong> The page's relative URL, e.g. for a source page
+    <code>input/stuff/news.md</code> this is <code>stuff/news.html</code>.</li>
+</ul>
+<p>The example <code>page.html</code> file in a freshly initialized site project uses a
+page's <em>title</em> attribute:</p>
+<pre><code>...
+&lt;div id="header"&gt;
+     &lt;h1&gt;a poole site&lt;/h1&gt;
+     &lt;h2&gt;{{ page["title"] }}&lt;/h2&gt;
+&lt;/div&gt;
+...
+</code></pre>
+<p><strong>TIP:</strong> All items in a page dictionary are exposed as attributes, i.e.
+<code>page["foobar"]</code> is identical to <code>page.foobar</code>. Dictionary access is useful if
+an item may not be set, e.g.: <code>page.get("foobar", "...")</code>.</p>
+<h3>Setting page attributes</h3>
+<p>Page attributes can be set at the top of a page's source file, in <a href="http://docs.python.org/library/configparser.html">Python's
+configuration file style</a>. They are delimited from the page's content
+by a line with 3 or more dashes.</p>
+<p><code>input/stuff/news.md</code>:</p>
+<pre><code>title: Hot News
+foobar: King Kong
+---
+Here are some news about {{ page.foobar }}.
+Did I say {% print(page.foobar) %}?
+</code></pre>
+<p>That way you can also set a page's title explicitly, instead of using the file
+name. Other useful attributes to set are <em>description</em> and <em>keywords</em>, which
+get used by the default <code>page.html</code> file to set HTML meta tags. Here it comes
+in handy to set <em>default</em> page attributes in the <code>macros.py</code> file:</p>
+<p><code>macros.py</code>:</p>
+<pre><code>page = { "description": "some stuff", "keywords": "stuff" }
+</code></pre>
+<p>That way you can safely use the <em>description</em> and <em>keywords</em> attributes without
+bothering if they are really defined in every page.</p>
+<h3>Accessing page objects in the macros module</h3>
+<p>The objects <code>pages</code> and <code>page</code> are also available within <code>macros.py</code>. That
+means you can define them as dummys and reference them in <code>macros.py</code>. Poole
+updates them when loading the <code>macros</code> module.</p>
+<p><code>macros.py</code>:</p>
+<pre><code>page = {} # you can also set defaults here, see previous section
+pages = []
+
+def something():
+    # when executing this, the page and pages objects above are up-to-date
+    print page["title"]
+</code></pre>
+<h2 id="optionsandpaths">Options and paths</h2>
+
+<p>Similarly to <code>page</code> and <code>pages</code> the following objects are available within
+embedded Python code and within the <em>macros</em> module:</p>
+<ul>
+<li><strong>options:</strong> The command line arguments given to Poole as parsed by
+    <a href="http://docs.python.org/library/optparse.html">Python's optparse module</a>. For instance the base URL can be
+    retrieved by <code>options.base_url</code>.</li>
+<li><strong>project:</strong> Path to the project's root directory.</li>
+<li><strong>input:</strong> Path to the project's input directory.</li>
+<li><strong>output:</strong> Path to the project's output directory.</li>
+</ul>
+<h3>Character encodings</h3>
+<p>In case you use non-ASCII characters, check the <em>encoding</em> options of Poole. In
+most cases working with non-ASCII strings should work straight forward if the
+options are set properly (default is <em>UTF-8</em>).</p>
+<p>However, be aware that page variables defined within page source files and
+derived from a page's file name internally are handled as Python <em>unicode</em>
+objects. That means if you want to refer to non-ASCII page variable names and
+values form within embedded Python code or from <code>macros.py</code>, make sure to use
+<em>unicode</em> strings to reference them.</p>
+<h3>Custom file converters</h3>
+<p>If you use <a href="http://lesscss.org/">LESS</a> or <a href="http://sandbox.pocoo.org/clevercss/">CleverCSS</a> you'll be happy about the possibility to
+define custom converters Poole applies to selected files in its building
+process. Custom converters may be defined in <code>macros.py</code> using a dictionary
+named 'converter' with file name patterns as keys and a converter function as
+well as a target file name extension as values:</p>
+<pre><code>converter = {
+    r'\.ccss': (ccss_to_css, 'css'),
+    ...
+}
+</code></pre>
+<p>The converter function <code>ccss_to_css</code> must accept the source file name and the
+destination file name as arguments. The destination file name is a suggestion
+(the source filename mapped to the project's output directory with the
+extension given in the converter dictionary) - you are free to choose another
+one:</p>
+<pre><code>import clevercss
+
+def ccss_to_css(src, dst):
+    # when `src` is '/path/to/project/input/foo.ccss'
+    # then `dst` is '/path/to/project/output/foo.css'
+    ccss = open(src).read()
+    css = clevercss.convert(ccss)
+    open(dst, 'w').write(css)
+</code></pre>
+<h3>Pre- and post-convert hooks</h3>
+<p>All pages converted by Poole may be processed by custom code in <code>macros.py</code>
+using <em>hook</em> functions. In particular, any function whose name starts with
+<code>hook_preconvert_</code> is run after source markdown files have been parsed but
+not yet converted. Similarly, any function whose name starts with
+<code>hook_postconvert_</code> is run after the content of pages has been converted to
+HTML (but still without the skeleton HTML given in the project's <code>page.html</code>
+file).</p>
+<p>Pre-convert hooks are useful to preprocess the markdown source and/or to
+generate new virtual pages based on existing real pages:</p>
+<pre><code>def hook_preconvert_foo():
+    # important: replace all foos by bars in every page
+    for p in pages:
+        p.source = p.source.replace("foo", "bar")
+    # create a new virtual page which still has a foo
+    p = Page("foo.md", virtual="The only page with a *foo*.", title="Foony")
+    pages.append(p)
+</code></pre>
+<p>Virtual pages can be created by providing a virtual source filename relative
+to the project's input folder and corresponding markdown content. Page
+attributes (e.g. <code>title</code>) may be given as additional keyword arguments but
+may also be encoded in the markdown source as in real markdown input files.</p>
+<p>A common use case for post-convert hooks is to generate full content RSS feeds:</p>
+<pre><code>def hook_postconvert_rss():
+    # this is kind of pseudo code
+    rss = ...
+    for p in pages:
+        rss.add_item(..., r.html)
+    rss.save(".../rss.xml")
+</code></pre>
+<p>More practical and detailed usage examples of hooks and virtual pages can be
+found in the recipes.</p>
+<h3>Recipes</h3>
+<p>You can do some pretty fancy and useful things with inlined Python code and
+the macros module, for instance generate a list of blog posts or create an RSS
+file. Check out the <a href="https://bitbucket.org/obensonne/poole/wiki/Recipes">example recipes</a>.</p>
+<h2 id="feedback">Feedback</h2>
+
+<p>Please use the <a href="http://bitbucket.org/obensonne/poole/issues/">issue tracker</a>.</p>
+    </div>
+  </div>
+
+  
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body></html>
