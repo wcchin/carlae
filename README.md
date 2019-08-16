@@ -1,5 +1,5 @@
 ---
-top_title: Carlae, a static single page for project site generator
+top_title: Carlae, a simple stuipd single static webpage generator for project site
 project_name: Carlae
 smart_title: Simple Stupid Single-webpage generator
 author: wcchin
@@ -9,15 +9,15 @@ keywords: [static, site, generator]
 three_concepts: [':typcn-device-desktop:', ':typcn-user-outline:', ':typcn-keyboard:']
 three_desc: [the monitor, the user, and the keyboard]
 concept_color: '#33C3F0'
-project_url: https://wcchin.github.io
-project_url_title: go to my project page
+project_url: https://github.com/wcchin/carlae
+project_url_title: go to project page
 theme: skeleton
 carlae_dir: carlae_page
 ---
 
 # Carlae
 
-**A Quick way to create simple SINGLE PAGE webpage for your project.**
+**A Quick way to create simple stupid SINGLE STATIC WEBPAGE for your project.**
 
 Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project. 
 You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated. 
@@ -36,12 +36,40 @@ Carlae is written in python 3.6. Carlae has a few dependencies:
 
 # Getting Started
 
-Clone or download the repository and put the files (extract them if download zip file) to somewhere, then 
+Clone or download the repository:  
 
-	$ pip install -e .
+	$ git clone https://github.com/wcchin/carlae.git
+
+and put the files (extract them if download zip file) to `somewhere`, then 
+
+	$ cd somewhere/
+	$ pip install .
 
 This will install the package at the current location and it is editable. 
 This will also add carlae to your terminal function.
+
+## Project example
+
+A simple project folder can look like this, and there should have a README.md file in it:
+
+    |- some_fancy_name
+        |- fancy_src
+        |- some_cool_stuff
+            |- astonishing.png
+            |- brilliant.png
+            |- cool.png
+        |- README.md
+
+
+To use carlae, simple cd to that folder, and run `carlae`:
+
+	$ cd some/path/to/the/some_fancy_name/
+	$ carlae
+	$ # OR 
+	$ carlae -i README.md
+	
+
+
 
 **write till here**
 

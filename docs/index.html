@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="UTF-8">
-  <title>Carlae, a static single page for project site generator</title>
+  <title>Carlae, a simple stuipd single static webpage generator for project site</title>
   <meta name="description" content="">
   <meta name="author" content="wcchin">
 
@@ -52,7 +52,7 @@
       <h1 class="title"> Carlae </h1>
       <h2 class="title"> Simple Stupid Single-webpage generator </h2>
       
-      <a class="button button-primary" href="https://wcchin.github.io" > go to my project page </a>
+      <a class="button button-primary" href="https://github.com/wcchin/carlae" > go to project page </a>
       
       
       <div class="value-props row">
@@ -115,6 +115,10 @@
                   <a class="popover-link" href="#gettingstarted">Getting Started</a>
                 </li>
                 
+                <li class="popover-item">
+                  <a class="popover-link" href="#projectexample">Project example</a>
+                </li>
+                
               </ul>
             </div>
           </li>
@@ -164,7 +168,7 @@
     <div class="docs-section" id="intro">
 	  <h1 id="carlae">Carlae</h1>
 
-<p><strong>A Quick way to create simple SINGLE PAGE webpage for your project.</strong></p>
+<p><strong>A Quick way to create simple stupid SINGLE STATIC WEBPAGE for your project.</strong></p>
 <p>Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project. 
 You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated. </p>
 <p>You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2. </p>
@@ -179,11 +183,32 @@ You can write the readme file as always, using markdown, and add a few yaml conf
 </ul>
 <h1 id="gettingstarted">Getting Started</h1>
 
-<p>Clone or download the repository and put the files (extract them if download zip file) to somewhere, then </p>
-<pre><code>$ pip install -e .
+<p>Clone or download the repository:  </p>
+<pre><code>$ git clone https://github.com/wcchin/carlae.git
+</code></pre>
+<p>and put the files (extract them if download zip file) to <code>somewhere</code>, then </p>
+<pre><code>$ cd somewhere/
+$ pip install .
 </code></pre>
 <p>This will install the package at the current location and it is editable. 
 This will also add carlae to your terminal function.</p>
+<h2 id="projectexample">Project example</h2>
+
+<p>A simple project folder can look like this, and there should have a README.md file in it:</p>
+<pre><code>|- some_fancy_name
+    |- fancy_src
+    |- some_cool_stuff
+        |- astonishing.png
+        |- brilliant.png
+        |- cool.png
+    |- README.md
+</code></pre>
+<p>To use carlae, simple cd to that folder, and run <code>carlae</code>:</p>
+<pre><code>$ cd some/path/to/the/some_fancy_name/
+$ carlae
+$ # OR 
+$ carlae -i README.md
+</code></pre>
 <p><strong>write till here</strong></p>
 <p>Create and build a site project:</p>
 <pre><code>$ mkdir /path/to/site/project
