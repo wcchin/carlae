@@ -191,7 +191,7 @@ That's all for now.
 
 ## Some example
 
-- [pyreveal page](https://wcchin.github.io/pyreveal)
+- [pyreveal page](https://wcchin.github.io/pyreveal/index.html)
 
 ## License 
 
