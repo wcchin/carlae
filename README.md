@@ -6,7 +6,7 @@ author: wcchin
 short_description: a static single page for project site generator
 template: page.html
 keywords: [static, site, generator]
-three_concepts: [':typcn-device-desktop:', ':typcn-user-outline:', ':typcn-keyboard:']
+three_concepts: [':typcn-device-desktop:', ':typcn-user-outline:', ':fas-keyboard:']
 three_desc: [the monitor, the user, and the keyboard]
 concept_color: '#33C3F0'
 project_url: https://github.com/wcchin/carlae
@@ -68,347 +68,151 @@ To use carlae, simple cd to that folder, and run `carlae`:
 	$ # OR 
 	$ carlae -i README.md
 	
+Then two directories: `docs` and `carlae_page` will be generated automatically:
 
 
+    |- some_fancy_name
+        |- fancy_src
+        |- some_cool_stuff
+            |- astonishing.png
+            |- brilliant.png
+            |- cool.png
+        |- carlae_page
+            |- theme
+				|- css
+				|- js
+				|- _templates
+					|- page.html
+        |- docs
+            |- css
+            |- js
+            |- index.html
+        |- README.md
 
-**write till here**
+the carlae_page/theme/css and carlae_page/theme/js will be copied to docs when the `carlae` command is called (again).  
+the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file. 
 
-Create and build a site project:
+## Add front matter
 
-    $ mkdir /path/to/site/project
-    $ cd /path/to/site/project
-    $ poole.py --init --theme minimal
-    $ poole.py --build
-    $ poole.py --serve
+Carlae rely on the front matter in the readme file to get the basic configuration. 
 
-Done. You've just created a website! Browse <http://localhost:8080/> and watch
-the example pages which have been created during initialization. To write your
-own pages, use the example pages in the *input* folder as a starting point.
+Front matter should looks like:
 
-Next to the *miniaml* theme, there are some other [choices available][themes].
+	top_title: Carlae: A single static webpage generator
+	project_name: Carlae
+	smart_title: Super Simple Stupid Single Static webpage generator
+	author: me
+	short_description: simple short desc.
+	keywords: [static, site, generator]
+	three_concepts: [': typcn-device-desktop :', ': typcn-user-outline :', ': fas-keyboard :']
+	three_desc: [the monitor, the user, and the keyboard]
+	concept_color: '#33C3F0'
+	project_url: https://github.com/wcchin/carlae
+	project_url_title: Go to project page...
+	carlae_dir: carlae_page
 
-Run `poole.py --build` whenever you've made some changes in the *input* folder.
+These are:
 
-[zip]: http://bitbucket.org/obensonne/poole/get/default.zip
-[tgz]: http://bitbucket.org/obensonne/poole/get/default.tar.gz
-[zip3]: https://bitbucket.org/obensonne/poole/get/py3.zip
-[tgz3]: http://bitbucket.org/obensonne/poole/get/py3.tar.gz
-[themes]: https://bitbucket.org/obensonne/poole/wiki/Themes
+- top_title: The title that will be used in `<head><title> here </title></head>`
+- project_name: the project name, which appear in the top of the page (body)
+- smart_title: some smart and fancy words that make the project attractive 
+- author: the name of the author who create this project
+- short_description: in the description of meta 
+- keywords: e.g. [static, site, generator], use square brackets to cover them, and comma to separate them
+- three_concepts: use two colons to cover a simple terms, starting by fas to use fontawesome icons, or typcn to use typicons. The blank space should be remove in the above example. 
+- three_desc: the three simple description about the three concept icons above
+- concept_color: the color of the three concepts icons
+- project_url: the project url
+- project_url_title: words appear on the button link to the project url
+- carlae_dir: OPTIONAL, the directory where Carlae will save and use the theme, you can modify it from here. it is default to `carlae_page`
 
-# How It Works
+## on Github
 
-Poole takes files from a project's `input` directory and copies them to the
-`output` directory. In this process files ending with *md*, *mkd*, *mdown* or
-*markdown* get converted to HTML using the project's `page.html` as a template
-(unless a custom template is set on an individual page).
+Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on. 
 
-Additionally Poole expands any macros used in a page. Don't care about that for
-now ..
+The `Source` change to `master branch/docs folder` should be ok, and then the project page will appear at https://your_user_name.github.io/your_project_name .
 
-When running `poole.py --build` in a Poole project, an input directory like
-this:
 
-    |- input
-        |- index.md
-        |- news.mkd
-        |- foo.mdown
-        |- images
-            |- bar.png
+# Some convenient stuff
 
-will result in an output folder like that:
+## Using watch command
 
-    |- output
-        |- index.html
-        |- news.html
-        |- foo.html
-        |- images
-            |- bar.png
+Carlae included watchdog package, which is used to watch the changes of the readme file, if it is changed (and saved), the carlae command will be trigger automatically, and generate the docs/index.html accordingly. 
 
-# Page Layout
+run this if you want to use the watchdog feature:
 
-Every Poole page is based on the skeleton file `page.html`. Hence adjusting the
-site layout means adjusting `page.html` and extending or replacing its CSS file
-`input/poole.css`.
+	$ carlae -w 
+	
+## Using icons
 
-The only thing you should keep in `page.html` are the embedded
-{{\_\_content\_\_}} and {{\_\_encoding\_\_}} expressions.  Below is an almost
-minimal `page.html` file. It does not look nice but it's a clean starting point
-to build your own layout from scratch.
+Carlae added some function to detect the use of fontawesome and typicons. If you want to use these icons, write the name of the icon, and use two colons surrounding it, likes:
 
-Minimal `page.html`:
+	:name_of_source-name_of_icons:
+	
+the available source are fontawesome (fas or fab) and typicons (typcn). for the name of icons, check the website: [fontawesome](https://fontawesome.com/) and [typicons](https://www.s-ings.com/typicons/)
 
-    <html>
-      <head>
-        <meta http-equiv="Content-Type" content="text/html; charset={{ __encoding__ }}" />
-      </head>
-      <body>
-        {{ __content__ }}
-      </body>
-    </html>
+For example (remove any space between the two colons): 
 
-It's easy to apply one of the numerous free CSS templates out there to a Poole
-site. For more information read [this blog post with step-by-step
-instructions][pimp].
+- : fas-keyboard : will becomes :fas-keyboard:
+- : typcn-globe-outline : will becomes :typcn-globe-outline:
 
-In case you need special templates for individual pages, you can add the
-property `tempalte` in the front matter of each page:
 
-    title: This looks different
-    template: a-special-page-template.html
-    ---
+## Anchor point menu bar
 
-In that case the given file is used as the page template instead of the default
-`page.html` file.
+The menu bar as shown in this page (skeleton theme) is also generated automatically during the conversion from markdown to html.  
+It will convert the first (h1) and second (h2) level items into the menu, according to the sequence of appearance.
 
-[pimp]: http://obensonne.bitbucket.org/blog/20091122-using-a-free-css-templates-in-poole.html
+E.g.:
 
-## Content Generation
+	# chapter I
+	## section I-1
+	## section I-2
+	## section I-3
+	# chapter II
+	## section II-1
+	## section II-2
+	## section II-3
+	# chapter III
+	# chapter IV
+	## section IV-1
+	## section IV-2
+	......
+	
+will convert to  
 
-Poole allows you to embed Python code in your pages to *generate* content:
+	chapter I | chapter II | chapter III | chapter IV......
 
-`input/some-page.md`:
+each of the chapter I, II, and IV will have a dropdown menu showing the sections, and for chapter III, there will be a dropdown menu contain only chpater III itself. 
 
-    Here is normal text in *markdown* flavor.
-    {%
-    print "hello poole"
-    %}
-    Did you know? The sum of 2 and 2 is {{ 2 + 2 }}.
 
-This example demonstrates two ways to embed Python code, either as statements or
-as expressions:
+# Finishing
 
-  1. Everything between `{%` and `%}` are *statements* and whatever is printed
-     to *stdout* during their execution is going to be part of the final HTML
-     page.
-  2. Everything between `{{` and `}}` are *expressions* and their evaluation is
-     going to be part of the final page.
+That's all for now. 
 
-**TIP**: Instead of the outer curly brackets `{` and `}` you can also use
-`<!--` and `-->` to prevent syntax highlighting markdown editors from getting
-confused by the Python code.
+## Some example
 
-**TIP:** To print the code surrounding tags literally, simply escape the
-opening tag with a backslash.
+- [pyreveal page](https://wcchin.github.io/pyreveal)
 
-[hyde]: http://ringce.com/hyde
+## License 
 
-### Outsource complex or frequently used code
+MIT License
 
-To keep embedded code short and compact or to reuse it in several pages, it can
-be outsourced into a file called `macros.py` in a project's root folder (where
-the `page.html` file is located). Every public attribute in `macros.py` is
-available within embedded Python code blocks:
+Copyright (c) 2019 Wei Chien Benny Chin <wcchin.88@gmail.com>
 
-`macros.py`:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-    from datetime import date
-    def today():
-        return date.today().strftime("%B %d, %Y")
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-    author = "Popeye"
-
-`input/some-page.md`:
-
-    This site has been updated on {{ today() }} by {{ author }}.
-
-### Builtin macros
-
-Builtin macros can be used from the macros module as well as from python
-code in your pages and templates (just as if they are defined within
-your macros.py).
-
-Currently, there is only one builtin macro available.
-
-`hx(s)`
-
-> Replace the characters that are special within HTML (`&`, `<`, `>` and `"`)
-> with their equivalent character entity (e.g., `&amp;`). This should be
-> called whenever an arbitrary string is inserted into HTML (i.e. use
-> `{{ hx(variable) }}` instead of `{{ variable }}`). You do not need this
-> within a markdown context.
->
-> Note that `"` is not special in most HTML, only within attributes.
-> However, since escaping it does not hurt within normal HTML, it is
-> just escaped unconditionally.
-
-### Working with pages
-
-Next to stuff defined in `macros.py` the objects `page` and `pages` are
-available in embedded Python code. The first one is a dictionary describing the
-page in which the code is embedded. The second one is a list of *all* pages in
-the project.
-
-The following attributes are always set in a page dictionary:
-
-  * **title:** The page's title, by default its filename without extension
-    (setting alternatives is described in the next section).
-  * **fname:** Path to the page's source file, e.g.
-    `/path/to/project/input/stuff/news.md`.
-  * **url:** The page's relative URL, e.g. for a source page
-    `input/stuff/news.md` this is `stuff/news.html`.
-
-The example `page.html` file in a freshly initialized site project uses a
-page's *title* attribute:
-
-    ...
-    <div id="header">
-         <h1>a poole site</h1>
-         <h2>{{ page["title"] }}</h2>
-    </div>
-    ...
-
-**TIP:** All items in a page dictionary are exposed as attributes, i.e.
-`page["foobar"]` is identical to `page.foobar`. Dictionary access is useful if
-an item may not be set, e.g.: `page.get("foobar", "...")`.
-
-### Setting page attributes
-
-Page attributes can be set at the top of a page's source file, in [Python's
-configuration file style][pyconf]. They are delimited from the page's content
-by a line with 3 or more dashes.
-
-`input/stuff/news.md`:
-
-    title: Hot News
-    foobar: King Kong
-    ---
-    Here are some news about {{ page.foobar }}.
-    Did I say {% print(page.foobar) %}?
-
-That way you can also set a page's title explicitly, instead of using the file
-name. Other useful attributes to set are *description* and *keywords*, which
-get used by the default `page.html` file to set HTML meta tags. Here it comes
-in handy to set *default* page attributes in the `macros.py` file:
-
-`macros.py`:
-
-    page = { "description": "some stuff", "keywords": "stuff" }
-
-That way you can safely use the *description* and *keywords* attributes without
-bothering if they are really defined in every page.
-
-[pyconf]: http://docs.python.org/library/configparser.html
-
-### Accessing page objects in the macros module
-
-The objects `pages` and `page` are also available within `macros.py`. That
-means you can define them as dummys and reference them in `macros.py`. Poole
-updates them when loading the `macros` module.
-
-`macros.py`:
-
-    page = {} # you can also set defaults here, see previous section
-    pages = []
-
-    def something():
-        # when executing this, the page and pages objects above are up-to-date
-        print page["title"]
-
-## Options and paths
-
-Similarly to `page` and `pages` the following objects are available within
-embedded Python code and within the *macros* module:
-
-  * **options:** The command line arguments given to Poole as parsed by
-    [Python's optparse module][pyopts]. For instance the base URL can be
-    retrieved by `options.base_url`.
-  * **project:** Path to the project's root directory.
-  * **input:** Path to the project's input directory.
-  * **output:** Path to the project's output directory.
-
-[pyopts]: http://docs.python.org/library/optparse.html
-
-### Character encodings
-
-In case you use non-ASCII characters, check the *encoding* options of Poole. In
-most cases working with non-ASCII strings should work straight forward if the
-options are set properly (default is *UTF-8*).
-
-However, be aware that page variables defined within page source files and
-derived from a page's file name internally are handled as Python *unicode*
-objects. That means if you want to refer to non-ASCII page variable names and
-values form within embedded Python code or from `macros.py`, make sure to use
-*unicode* strings to reference them.
-
-### Custom file converters
-
-If you use [LESS][] or [CleverCSS][] you'll be happy about the possibility to
-define custom converters Poole applies to selected files in its building
-process. Custom converters may be defined in `macros.py` using a dictionary
-named 'converter' with file name patterns as keys and a converter function as
-well as a target file name extension as values:
-
-    converter = {
-        r'\.ccss': (ccss_to_css, 'css'),
-        ...
-    }
-
-The converter function `ccss_to_css` must accept the source file name and the
-destination file name as arguments. The destination file name is a suggestion
-(the source filename mapped to the project's output directory with the
-extension given in the converter dictionary) - you are free to choose another
-one:
-
-    import clevercss
-
-    def ccss_to_css(src, dst):
-        # when `src` is '/path/to/project/input/foo.ccss'
-        # then `dst` is '/path/to/project/output/foo.css'
-        ccss = open(src).read()
-        css = clevercss.convert(ccss)
-        open(dst, 'w').write(css)
-
-[clevercss]: http://sandbox.pocoo.org/clevercss/
-[less]: http://lesscss.org/
-
-### Pre- and post-convert hooks
-
-All pages converted by Poole may be processed by custom code in `macros.py`
-using *hook* functions. In particular, any function whose name starts with
-`hook_preconvert_` is run after source markdown files have been parsed but
-not yet converted. Similarly, any function whose name starts with
-`hook_postconvert_` is run after the content of pages has been converted to
-HTML (but still without the skeleton HTML given in the project's `page.html`
-file).
-
-Pre-convert hooks are useful to preprocess the markdown source and/or to
-generate new virtual pages based on existing real pages:
-
-    def hook_preconvert_foo():
-        # important: replace all foos by bars in every page
-        for p in pages:
-            p.source = p.source.replace("foo", "bar")
-        # create a new virtual page which still has a foo
-        p = Page("foo.md", virtual="The only page with a *foo*.", title="Foony")
-        pages.append(p)
-
-Virtual pages can be created by providing a virtual source filename relative
-to the project's input folder and corresponding markdown content. Page
-attributes (e.g. `title`) may be given as additional keyword arguments but
-may also be encoded in the markdown source as in real markdown input files.
-
-A common use case for post-convert hooks is to generate full content RSS feeds:
-
-    def hook_postconvert_rss():
-        # this is kind of pseudo code
-        rss = ...
-        for p in pages:
-            rss.add_item(..., r.html)
-        rss.save(".../rss.xml")
-
-More practical and detailed usage examples of hooks and virtual pages can be
-found in the recipes.
-
-### Recipes
-
-You can do some pretty fancy and useful things with inlined Python code and
-the macros module, for instance generate a list of blog posts or create an RSS
-file. Check out the [example recipes][recipes].
-
-[recipes]: https://bitbucket.org/obensonne/poole/wiki/Recipes
-
-## Feedback
-
-Please use the [issue tracker][issues].
-
-[issues]: http://bitbucket.org/obensonne/poole/issues/
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
