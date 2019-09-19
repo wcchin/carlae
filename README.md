@@ -1,20 +1,3 @@
----
-top_title: Carlae, a simple stuipd single static webpage generator for project site
-project_name: Carlae
-smart_title: Simple Stupid Single-webpage generator
-author: wcchin
-short_description: a static single page for project site generator
-template: page.html
-keywords: [static, site, generator]
-three_concepts: [':typcn-device-desktop:', ':typcn-user-outline:', ':fas-keyboard:']
-three_desc: [the monitor, the user, and the keyboard]
-concept_color: '#33C3F0'
-project_url: https://github.com/wcchin/carlae
-project_url_title: go to project page
-theme: skeleton
-carlae_dir: carlae_page
----
-
 # Carlae
 
 **A Quick way to create simple stupid SINGLE STATIC WEBPAGE for your project.**
@@ -92,9 +75,9 @@ Then two directories: `docs` and `carlae_page` will be generated automatically:
 the carlae_page/theme/css and carlae_page/theme/js will be copied to docs when the `carlae` command is called (again).  
 the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file. 
 
-## Add front matter
+## Add config file or front matter
 
-Carlae rely on the front matter in the readme file to get the basic configuration. 
+Carlae rely on the front matter in the readme file to get the basic configuration. In latest version, **carlae will also try to find a file named carlae.conf for these configuration. **
 
 Front matter should looks like:
 
@@ -125,6 +108,14 @@ These are:
 - project_url: the project url
 - project_url_title: words appear on the button link to the project url
 - carlae_dir: OPTIONAL, the directory where Carlae will save and use the theme, you can modify it from here. it is default to `carlae_page`
+
+
+Or, you can also tell carlae where the config file is through the -c optional argument, e.g.:
+
+```
+carlae -i README.md -c carlae_setting.conf
+```
+
 
 ## on Github
 

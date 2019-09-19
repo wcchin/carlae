@@ -52,23 +52,23 @@
       <h1 class="title"> Carlae </h1>
       <h2 class="title"> Simple Stupid Single-webpage generator </h2>
       
-      <a class="button button-primary" href="https://github.com/wcchin/carlae" > go to project page </a>
+      <a class="button button-primary" href="https://github.com/wcchin/carlae" style="background-color:#25a36f;" > go to project page </a>
       
       
       <div class="value-props row">
 		
         <div class="four columns value-prop">
-		  <h1 style="color:#33C3F0;"><span class="typcn typcn-device-desktop"></span></h1>
+		  <h1 style="color:#25a36f;"><span class="typcn typcn-device-desktop"></span></h1>
           the monitor
         </div>
         
         <div class="four columns value-prop">
-		  <h1 style="color:#33C3F0;"><span class="typcn typcn-user-outline"></span></h1>
+		  <h1 style="color:#25a36f;"><span class="typcn typcn-user-outline"></span></h1>
           the user
         </div>
         
         <div class="four columns value-prop">
-		  <h1 style="color:#33C3F0;"><i class="fas fa-keyboard"></i></h1>
+		  <h1 style="color:#25a36f;"><i class="fas fa-keyboard"></i></h1>
           and the keyboard
         </div>
         
@@ -120,7 +120,7 @@
                 </li>
                 
                 <li class="popover-item">
-                  <a class="popover-link" href="#addfrontmatter">Add front matter</a>
+                  <a class="popover-link" href="#addconfigfileorfrontmatter">Add config file or front matter</a>
                 </li>
                 
                 <li class="popover-item">
@@ -246,9 +246,9 @@ $ carlae -i README.md
 </code></pre>
 <p>the carlae_page/theme/css and carlae_page/theme/js will be copied to docs when the <code>carlae</code> command is called (again).<br />
 the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file. </p>
-<h2 id="addfrontmatter">Add front matter</h2>
+<h2 id="addconfigfileorfrontmatter">Add config file or front matter</h2>
 
-<p>Carlae rely on the front matter in the readme file to get the basic configuration. </p>
+<p>Carlae rely on the front matter in the readme file to get the basic configuration. In latest version, <strong>carlae will also try to find a file named carlae.conf for these configuration. </strong></p>
 <p>Front matter should looks like:</p>
 <pre><code>top_title: Carlae: A single static webpage generator
 project_name: Carlae
@@ -278,6 +278,8 @@ carlae_dir: carlae_page
 <li>project_url_title: words appear on the button link to the project url</li>
 <li>carlae_dir: OPTIONAL, the directory where Carlae will save and use the theme, you can modify it from here. it is default to <code>carlae_page</code></li>
 </ul>
+<p>Or, you can also tell carlae where the config file is through the -c optional argument, e.g.:</p>
+<p><code>carlae -i README.md -c carlae_setting.conf</code></p>
 <h2 id="ongithub">on Github</h2>
 
 <p>Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on. </p>

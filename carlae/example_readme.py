@@ -4,8 +4,7 @@
 # init site
 # =============================================================================
 
-EXAMPLE_FILES =  { "README.md": 
-"""---
+EXAMPLE_FILES =  { "carlae.conf": """---
 top_title: carlae, a static single page for project site generator
 project_name: carlae
 smart_title: some fancy words
@@ -17,7 +16,9 @@ three_desc: [the facebook, the camera, and the globe]
 concept_color: '#33C3F0'
 project_url: https://wcchin.github.io
 project_url_title: go to my project page
----
+---""",
+"README.md":
+"""
 
 # Carlae
 

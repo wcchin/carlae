@@ -3,7 +3,7 @@
 # ====================================================================================
 #
 #    carlae - A simple stupid single webpage generator for project.
-#    
+#
 # ====================================================================================
 
 import sys
@@ -23,7 +23,7 @@ from watchdog.observers import Observer
 
 from .docdata.yamldata import get_data as ygetdata
 from .example_readme import EXAMPLE_FILES
-    
+
 
 def check_mkdir(outpath):
     #directory = os.path.dirname(outpath)
@@ -31,7 +31,7 @@ def check_mkdir(outpath):
     if not opx(outpath):
         print('creating dir:', outpath)
         os.makedirs(outpath)
-        
+
 
 def text_export(outputText, outputPath):
     check_mkdir(os.path.dirname(outputPath))
@@ -48,7 +48,7 @@ def init(project='carlae_page', theme=None, output='docs', default_readme=False)
     """Initialize a site project."""
     HERE = os.path.dirname(os.path.realpath(__file__))
     THEME_DIR = opj(HERE, 'themes')
-    
+
     cwd = os.getcwd()
 
     check_mkdir(opj(cwd, project))
@@ -58,14 +58,14 @@ def init(project='carlae_page', theme=None, output='docs', default_readme=False)
 
     theme_dir = opj(project, "theme")
     if not(opx(theme_dir)):
-        if theme is None: 
+        if theme is None:
             theme = 'skeleton'
         elif not(theme in os.listdir(THEME_DIR)):
             print("the selected theme not in theme dir, will use skeleton")
             theme = 'skeleton'
         shutil.copytree(opj(THEME_DIR, theme), theme_dir)
     THEME_DIR = theme_dir
-    
+
     static_dir = os.listdir(theme_dir)
     static_dir = [ d for d in static_dir if not(d[0]=='_') ]
     for d in static_dir:
@@ -89,12 +89,12 @@ def init(project='carlae_page', theme=None, output='docs', default_readme=False)
 # =============================================================================
 
 
-def build(target=None, output='docs'):
-    
+def build(target=None, output='docs', conf_file='carlae.conf'):
+
     cwd = os.getcwd()
-    
+
     default_readme = False
-    
+
     if target is None:
         tar = 'README.md'
         if tar in os.listdir(cwd):
@@ -110,33 +110,46 @@ def build(target=None, output='docs'):
                 print('no readme file is found, make a default readme')
                 #sys.exit(1)
                 default_readme = True
-    
-    doc, doc_dic = get_doc(target)
-    
+
+    doc, doc_dic = get_doc(target, conf_file)
+
     if 'theme' not in doc_dic: doc_dic['theme'] = None
     if 'carlae_dir' not in doc_dic: doc_dic['carlae_dir'] = 'carlae_page'
     init(project=doc_dic['carlae_dir'], theme=doc_dic['theme'], output=output, default_readme=default_readme)
-                
+
     outpath = opj(cwd, output, 'index.html')
     theme_dir = opj(cwd, doc_dic['carlae_dir'], 'theme')
     process_one_page(doc, doc_dic, outpath, theme_dir)
-    
+
     print('success: building project page')
 
 
-def get_doc(target_file):
+def get_doc(target_file, conf_file):
     cwd = os.getcwd()
     with open(opj(cwd, target_file), 'r') as f:
         doc = f.read()
     doc, doc_dic = ygetdata(doc)
+
+    if os.path.exists(opj(cwd, conf_file)):
+        with open(opj(cwd, conf_file), 'r') as f:
+            doc2 = f.read()
+    else:
+        if len(doc_dic)<1:
+            print('carlae.conf not found, use default config file')
+            doc2 = EXAMPLE_FILES['carlae.conf']
+        else:
+            doc2 = ''
+    doc2, doc_dic2 = ygetdata(doc2)
+    if len(doc_dic)<1:
+        doc_dic.update(doc_dic2)
     return doc, doc_dic
-    
-    
+
+
 def process_one_page(doc, doc_dic, output_path, theme_dir):
-    
+
     cwd = os.getcwd()
     #doc = doc.decode('utf-8')
-    
+
     main_text = doc.split('\n')
     main_text2 = []
     menus = []
@@ -153,31 +166,31 @@ def process_one_page(doc, doc_dic, output_path, theme_dir):
         main_text2.append(check_icons(line))
     main_text = main_text2
 
-    main_text_str = '\n'.join(main_text)    
+    main_text_str = '\n'.join(main_text)
 
     md = markdown.Markdown()
     html = md.convert(main_text_str)
-    
+
     #print(html)
     #print(doc_dic)
-    
+
     conf_default = {
-        'template': 'page.html', 
-        'top_title': 'A Read-Me Page', 
-        'project_name': 'carlae', 
-        'smart_title': None, 
-        'author':'annonymous', 
-        'short_description': 'short project description', 
+        'template': 'page.html',
+        'top_title': 'A Read-Me Page',
+        'project_name': 'carlae',
+        'smart_title': None,
+        'author':'annonymous',
+        'short_description': 'short project description',
         'three_concepts': None,
         'three_desc': None,
-        'menu': {}, 
+        'menu': {},
         'google_analytics': None,
         'concept_color': 'black'
     }
-    
+
     for k,v in conf_default.items():
         if not k in doc_dic: doc_dic[k] = v
-        
+
     if doc_dic['three_concepts'] is not None:
         doc_dic['concept_width'] = 'four'
         doc_dic['three_concepts'] = doc_dic['three_concepts'][:3]
@@ -185,7 +198,7 @@ def process_one_page(doc, doc_dic, output_path, theme_dir):
         for con in doc_dic['three_concepts']:
             temp_concepts.append( check_icons(con) )
         doc_dic['three_concepts'] = temp_concepts
-    
+
     doc_dic['content'] = html
     doc_dic['menus'] = menus
     #print(opj(THEME_DIR, 'templates'))
@@ -193,9 +206,9 @@ def process_one_page(doc, doc_dic, output_path, theme_dir):
     template_env = jinja2.Environment( loader=template_loader )
     template = template_env.get_template( doc_dic['template'] )
     output_text = template.render( doc_dic )
-    
+
     text_export(output_text, output_path)
-    
+
 
 
 def check_icons(astring):
@@ -219,12 +232,13 @@ def check_icons(astring):
 
 
 class MyHandler(FileSystemEventHandler):
-    def __init__(self, infile, outdir):
+    def __init__(self, infile, outdir, conf_file):
         self.infile = infile
         self.outdir = outdir
+        self.conf_file = conf_file
 
     def dispatch(self, event):
-        build(self.infile, self.outdir)
+        build(self.infile, self.outdir, self.conf_file)
         print("updated page")
 
 
@@ -237,19 +251,24 @@ def main():
         metavar="readme.md")
     parser.add_option("-o", "--output",
         dest="output",
-        help="tthe location to store the website",
+        help="the location to store the website",
         default='docs',
         metavar="docs")
+    parser.add_option("-c", "--config",
+        dest="config_file",
+        help="the carlae config file, default to carlae.conf",
+        default="carlae.conf",
+        metavar="carlae.config")
     parser.add_option("-w", "--watch", action="store_true", dest="watch", default=False)
 
     options, args = parser.parse_args()
-    build(target=options.filename, output=options.output)
+    build(target=options.filename, output=options.output, conf_file=options.config_file)
 
     if options.watch:
         print("start watching changes")
         print("to stop watching, press ctrl+c")
         observer = Observer()
-        event_handler = MyHandler(options.filename, options.output)
+        event_handler = MyHandler(options.filename, options.output, options.config_file)
         path =  os.path.dirname(os.path.abspath(options.filename))
         observer.schedule(event_handler, path, recursive=True)
         observer.start()
@@ -260,4 +279,4 @@ def main():
             observer.stop()
         observer.join()
         print("")
-        print("watching stop")    
+        print("watching stop")
