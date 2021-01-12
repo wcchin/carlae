@@ -129,19 +129,20 @@ def get_doc(target_file, conf_file):
     with open(opj(cwd, target_file), 'r') as f:
         doc = f.read()
     doc, doc_dic = ygetdata(doc)
-
+    #print(doc_dic, len(doc_dic))
     if os.path.exists(opj(cwd, conf_file)):
         with open(opj(cwd, conf_file), 'r') as f:
             doc2 = f.read()
+        doc2, doc_dic2 = ygetdata(doc2)
+        doc_dic.update(doc_dic2)
     else:
         if len(doc_dic)<1:
             print('carlae.conf not found, use default config file')
             doc2 = EXAMPLE_FILES['carlae.conf']
+            doc2, doc_dic2 = ygetdata(doc2)
+            doc_dic.update(doc_dic2)
         else:
-            doc2 = ''
-    doc2, doc_dic2 = ygetdata(doc2)
-    if len(doc_dic)<1:
-        doc_dic.update(doc_dic2)
+            print('use front matter')
     return doc, doc_dic
 
 
