@@ -186,6 +186,7 @@ That's all for now.
 - [example of skeleton theme](https://wcchin.github.io/carlae/index.html)
 - [example of minimal theme](https://wcchin.github.io/carlae/minimal/index.html)
 - [example of poole theme](https://wcchin.github.io/carlae/poole/index.html)
+- [example of milligram theme](https://wcchin.github.io/carlae/milligram/index.html)
 
 ## License 
 
