@@ -183,10 +183,11 @@ That's all for now.
 ## Some example
 
 - [pyreveal page](https://wcchin.github.io/pyreveal/index.html)
-- [example of skeleton theme](https://wcchin.github.io/carlae/index.html)
+- [example of skeleton.css theme](https://wcchin.github.io/carlae/index.html)
 - [example of minimal theme](https://wcchin.github.io/carlae/minimal/index.html)
 - [example of poole theme](https://wcchin.github.io/carlae/poole/index.html)
-- [example of milligram theme](https://wcchin.github.io/carlae/milligram/index.html)
+- [example of milligram.css theme](https://wcchin.github.io/carlae/milligram/index.html)
+- [example of pico.css theme](https://wcchin.github.io/carlae/pico/index.html)
 
 ## License 
 
