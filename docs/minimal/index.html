@@ -33,9 +33,9 @@
     <h1 id="carlae">Carlae</h1>
 
 <p><strong>A Quick way to create simple stupid SINGLE STATIC WEBPAGE for your project.</strong></p>
-<p>Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project. 
-You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated. </p>
-<p>You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2. </p>
+<p>Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project.
+You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated.</p>
+<p>You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2.</p>
 <h1 id="dependencies">Dependencies</h1>
 
 <p>Carlae is written in python 3.6. Carlae has a few dependencies:</p>
@@ -50,11 +50,11 @@ You can write the readme file as always, using markdown, and add a few yaml conf
 <p>Clone or download the repository:  </p>
 <pre><code>$ git clone https://github.com/wcchin/carlae.git
 </code></pre>
-<p>and put the files (extract them if download zip file) to <code>somewhere</code>, then </p>
+<p>and put the files (extract them if download zip file) to <code>somewhere</code>, then</p>
 <pre><code>$ cd somewhere/
 $ pip install .
 </code></pre>
-<p>This will install the package at the current location and it is editable. 
+<p>This will install the package at the current location and it is editable.
 This will also add carlae to your terminal function.</p>
 <h2 id="projectexample">Project example</h2>
 
@@ -70,7 +70,7 @@ This will also add carlae to your terminal function.</p>
 <p>To use carlae, simple cd to that folder, and run <code>carlae</code>:</p>
 <pre><code>$ cd some/path/to/the/some_fancy_name/
 $ carlae
-$ # OR 
+$ # OR
 $ carlae -i README.md
 </code></pre>
 <p>Then two directories: <code>docs</code> and <code>carlae_page</code> will be generated automatically:</p>
@@ -93,7 +93,7 @@ $ carlae -i README.md
     |- README.md
 </code></pre>
 <p>the carlae_page/theme/css and carlae_page/theme/js will be copied to docs when the <code>carlae</code> command is called (again).<br />
-the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file. </p>
+the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file.</p>
 <h2 id="addconfigfileorfrontmatter">Add config file or front matter</h2>
 
 <p>Carlae rely on the front matter in the readme file to get the basic configuration. In latest version, <strong>carlae will also try to find a file named carlae.conf for these configuration. </strong></p>
@@ -115,11 +115,11 @@ carlae_dir: carlae_page
 <ul>
 <li>top_title: The title that will be used in <code>&lt;head&gt;&lt;title&gt; here &lt;/title&gt;&lt;/head&gt;</code></li>
 <li>project_name: the project name, which appear in the top of the page (body)</li>
-<li>smart_title: some smart and fancy words that make the project attractive </li>
+<li>smart_title: some smart and fancy words that make the project attractive</li>
 <li>author: the name of the author who create this project</li>
-<li>short_description: in the description of meta </li>
+<li>short_description: in the description of meta</li>
 <li>keywords: e.g. [static, site, generator], use square brackets to cover them, and comma to separate them</li>
-<li>three_concepts: use two colons to cover a simple terms, starting by fas to use fontawesome icons, or typcn to use typicons. The blank space should be remove in the above example. </li>
+<li>three_concepts: use two colons to cover a simple terms, starting by fas to use fontawesome icons, or typcn to use typicons. The blank space should be remove in the above example.</li>
 <li>three_desc: the three simple description about the three concept icons above</li>
 <li>concept_color: the color of the three concepts icons</li>
 <li>project_url: the project url</li>
@@ -130,13 +130,13 @@ carlae_dir: carlae_page
 <p><code>carlae -i README.md -c carlae_setting.conf</code></p>
 <h2 id="ongithub">on Github</h2>
 
-<p>Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on. </p>
+<p>Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on.</p>
 <p>The <code>Source</code> change to <code>master branch/docs folder</code> should be ok, and then the project page will appear at https://your_user_name.github.io/your_project_name .</p>
 <h1 id="someconvenientstuff">Some convenient stuff</h1>
 
 <h2 id="usingwatchcommand">Using watch command</h2>
 
-<p>Carlae included watchdog package, which is used to watch the changes of the readme file, if it is changed (and saved), the carlae command will be trigger automatically, and generate the docs/index.html accordingly. </p>
+<p>Carlae included watchdog package, which is used to watch the changes of the readme file, if it is changed (and saved), the carlae command will be trigger automatically, and generate the docs/index.html accordingly.</p>
 <p>run this if you want to use the watchdog feature:</p>
 <pre><code>$ carlae -w
 </code></pre>
@@ -146,7 +146,7 @@ carlae_dir: carlae_page
 <pre><code>:name_of_source-name_of_icons:
 </code></pre>
 <p>the available source are fontawesome (fas or fab) and typicons (typcn). for the name of icons, check the website: <a href="https://fontawesome.com/">fontawesome</a> and <a href="https://www.s-ings.com/typicons/">typicons</a></p>
-<p>For example (remove any space between the two colons): </p>
+<p>For example (remove any space between the two colons):</p>
 <ul>
 <li>: fas-keyboard : will becomes <i class="fas fa-keyboard"></i></li>
 <li>: typcn-globe-outline : will becomes <span class="typcn typcn-globe-outline"></span></li>
@@ -173,12 +173,14 @@ It will convert the first (h1) and second (h2) level items into the menu, accord
 <p>will convert to  </p>
 <pre><code>chapter I | chapter II | chapter III | chapter IV......
 </code></pre>
-<p>each of the chapter I, II, and IV will have a dropdown menu showing the sections, and for chapter III, there will be a dropdown menu contain only chpater III itself. </p>
+<p>each of the chapter I, II, and IV will have a dropdown menu showing the sections, and for chapter III, there will be a dropdown menu contain only chpater III itself.</p>
 <h1 id="finishing">Finishing</h1>
 
-<p>That's all for now. </p>
+<p>That's all for now.</p>
 <h2 id="someexample">Some example</h2>
 
+<p>The example templates (skeleton, minimal, poole, milligram, pico, picnic) come with carlae.
+The skeleton templates separate the css files from the main template, whereas the rest all include the css in one template file. The css themes (skeleton, milligram, pico, and picnic) could be used to add more elements provided by the css.</p>
 <ul>
 <li><a href="https://wcchin.github.io/pyreveal/index.html">pyreveal page</a></li>
 <li><a href="https://wcchin.github.io/carlae/index.html">example of skeleton.css theme</a></li>
@@ -186,8 +188,9 @@ It will convert the first (h1) and second (h2) level items into the menu, accord
 <li><a href="https://wcchin.github.io/carlae/poole/index.html">example of poole theme</a></li>
 <li><a href="https://wcchin.github.io/carlae/milligram/index.html">example of milligram.css theme</a></li>
 <li><a href="https://wcchin.github.io/carlae/pico/index.html">example of pico.css theme</a></li>
+<li><a href="https://wcchin.github.io/carlae/picnic/index.html">example of picnic.css theme</a></li>
 </ul>
-<h2 id="license">License </h2>
+<h2 id="license">License</h2>
 
 <p>MIT License</p>
 <p>Copyright (c) 2019 Wei Chien Benny Chin <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#99;&#99;&#104;&#105;&#110;&#46;&#56;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#119;&#99;&#99;&#104;&#105;&#110;&#46;&#56;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>

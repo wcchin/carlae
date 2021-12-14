@@ -2,10 +2,10 @@
 
 **A Quick way to create simple stupid SINGLE STATIC WEBPAGE for your project.**
 
-Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project. 
-You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated. 
+Carlae is an easy to use [Markdown][] driven single-page static site generator. It is designed with focuses putting on making simple and beautiful project page for your open source project.
+You can write the readme file as always, using markdown, and add a few yaml configuration info on top of the readme file, then run the simple build function, and the single page website is generated.
 
-You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2. 
+You can also design and modify your own theme file from the theme file ship with this project, which is based on the skeleton css (website). Carlae uses jinja2 as the engine to generate html content, so the template file (page.html) is written integrated with jinja2.
 
 # Dependencies
 
@@ -23,12 +23,12 @@ Clone or download the repository:
 
 	$ git clone https://github.com/wcchin/carlae.git
 
-and put the files (extract them if download zip file) to `somewhere`, then 
+and put the files (extract them if download zip file) to `somewhere`, then
 
 	$ cd somewhere/
 	$ pip install .
 
-This will install the package at the current location and it is editable. 
+This will install the package at the current location and it is editable.
 This will also add carlae to your terminal function.
 
 ## Project example
@@ -48,9 +48,9 @@ To use carlae, simple cd to that folder, and run `carlae`:
 
 	$ cd some/path/to/the/some_fancy_name/
 	$ carlae
-	$ # OR 
+	$ # OR
 	$ carlae -i README.md
-	
+
 Then two directories: `docs` and `carlae_page` will be generated automatically:
 
 
@@ -73,7 +73,7 @@ Then two directories: `docs` and `carlae_page` will be generated automatically:
         |- README.md
 
 the carlae_page/theme/css and carlae_page/theme/js will be copied to docs when the `carlae` command is called (again).  
-the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file. 
+the carlae_page/theme/_templates/page.html is the jinja2 template file, which will be used to generate the docs/index.html, and this is the single static page for your readme file.
 
 ## Add config file or front matter
 
@@ -98,11 +98,11 @@ These are:
 
 - top_title: The title that will be used in `<head><title> here </title></head>`
 - project_name: the project name, which appear in the top of the page (body)
-- smart_title: some smart and fancy words that make the project attractive 
+- smart_title: some smart and fancy words that make the project attractive
 - author: the name of the author who create this project
-- short_description: in the description of meta 
+- short_description: in the description of meta
 - keywords: e.g. [static, site, generator], use square brackets to cover them, and comma to separate them
-- three_concepts: use two colons to cover a simple terms, starting by fas to use fontawesome icons, or typcn to use typicons. The blank space should be remove in the above example. 
+- three_concepts: use two colons to cover a simple terms, starting by fas to use fontawesome icons, or typcn to use typicons. The blank space should be remove in the above example.
 - three_desc: the three simple description about the three concept icons above
 - concept_color: the color of the three concepts icons
 - project_url: the project url
@@ -119,7 +119,7 @@ carlae -i README.md -c carlae_setting.conf
 
 ## on Github
 
-Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on. 
+Just a small reminder, after the docs/ directory to github, remember to turn the GitHub Pages setup on.
 
 The `Source` change to `master branch/docs folder` should be ok, and then the project page will appear at https://your_user_name.github.io/your_project_name .
 
@@ -128,21 +128,21 @@ The `Source` change to `master branch/docs folder` should be ok, and then the pr
 
 ## Using watch command
 
-Carlae included watchdog package, which is used to watch the changes of the readme file, if it is changed (and saved), the carlae command will be trigger automatically, and generate the docs/index.html accordingly. 
+Carlae included watchdog package, which is used to watch the changes of the readme file, if it is changed (and saved), the carlae command will be trigger automatically, and generate the docs/index.html accordingly.
 
 run this if you want to use the watchdog feature:
 
-	$ carlae -w 
-	
+	$ carlae -w
+
 ## Using icons
 
 Carlae added some function to detect the use of fontawesome and typicons. If you want to use these icons, write the name of the icon, and use two colons surrounding it, likes:
 
 	:name_of_source-name_of_icons:
-	
+
 the available source are fontawesome (fas or fab) and typicons (typcn). for the name of icons, check the website: [fontawesome](https://fontawesome.com/) and [typicons](https://www.s-ings.com/typicons/)
 
-For example (remove any space between the two colons): 
+For example (remove any space between the two colons):
 
 - : fas-keyboard : will becomes :fas-keyboard:
 - : typcn-globe-outline : will becomes :typcn-globe-outline:
@@ -168,19 +168,22 @@ E.g.:
 	## section IV-1
 	## section IV-2
 	......
-	
+
 will convert to  
 
 	chapter I | chapter II | chapter III | chapter IV......
 
-each of the chapter I, II, and IV will have a dropdown menu showing the sections, and for chapter III, there will be a dropdown menu contain only chpater III itself. 
+each of the chapter I, II, and IV will have a dropdown menu showing the sections, and for chapter III, there will be a dropdown menu contain only chpater III itself.
 
 
 # Finishing
 
-That's all for now. 
+That's all for now.
 
 ## Some example
+
+The example templates (skeleton, minimal, poole, milligram, pico, picnic) come with carlae.
+The skeleton templates separate the css files from the main template, whereas the rest all include the css in one template file. The css themes (skeleton, milligram, pico, and picnic) could be used to add more elements provided by the css.
 
 - [pyreveal page](https://wcchin.github.io/pyreveal/index.html)
 - [example of skeleton.css theme](https://wcchin.github.io/carlae/index.html)
@@ -188,8 +191,9 @@ That's all for now.
 - [example of poole theme](https://wcchin.github.io/carlae/poole/index.html)
 - [example of milligram.css theme](https://wcchin.github.io/carlae/milligram/index.html)
 - [example of pico.css theme](https://wcchin.github.io/carlae/pico/index.html)
+- [example of picnic.css theme](https://wcchin.github.io/carlae/picnic/index.html)
 
-## License 
+## License
 
 MIT License
 
